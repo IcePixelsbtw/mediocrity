@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model User
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,19 +12,22 @@
 <body>
     <div class="container">
         <h2>Регистрация</h2>
-        <form action="#" method="POST">
+        <form action="Registrate" method="post">
           <div class="form-group">
-            <input type="email" id="email" name="email" required placeholder="oralcumshot@mediocrities.com">
+            <input type="email" id="email" name="email" required placeholder="oralcumshot@mediocrities.com"
+                asp-for="Email">
           </div>
           <div class="form-group">
-            <input type="password" id="password" name="password" required placeholder="Password">
+            <input type="password" id="password" name="password" required placeholder="Password"
+                asp-for="Password">
           </div>
           <div class="form-group inline">
             <div>
-                <input type="text" id="name" name="name" required placeholder="Name">
+
+                    <input asp-for="FirstName">
             </div>
             <div>
-                <input class="sname" type="text" id="surname" name="surname" required placeholder="Last name">
+                    <input asp-for="LastName">
             </div>
           </div>
           <div class="form-group">
@@ -33,5 +38,10 @@
           </div>
         </form>
       </div>
+
+      @*
+    class="sname" id="surname" name="surname" required placeholder="Last name"
+    id="name" name="name" required placeholder="Name"
+      *@
 </body>
 </html>

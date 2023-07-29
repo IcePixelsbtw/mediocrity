@@ -22,7 +22,7 @@ class DatabaseManager
     }
 
     public static string safeEmail(string email)
-    { 
+    {
         return email.Replace('.', '_');
     }
 
@@ -30,10 +30,10 @@ class DatabaseManager
     {
         bool returnResult = false;
         IFirebaseClient client = DatabaseManager.establishDataBaseConnection();
-       
+
         string safeEmail = DatabaseManager.safeEmail(email);
         string path = "Users/";
-        
+
         FirebaseResponse result = client.Get(path);
         Dictionary<string, User> userData = result.ResultAs<Dictionary<string, User>>();
 
@@ -46,12 +46,12 @@ class DatabaseManager
                 Console.WriteLine("Email already taken...");
             }
         }
-        
+
         return returnResult;
-        
+
     }
 
-    public static void createNewUser(string userFirstName,string userLastName, string userPassword, string userEmail, string[] userStack)
+    public static void createNewUser(string userFirstName, string userLastName, string userPassword, string userEmail, string[] userStack)
     {
 
         if (DatabaseManager.doesExist(userEmail))
@@ -60,7 +60,7 @@ class DatabaseManager
         }
 
         IFirebaseClient client = DatabaseManager.establishDataBaseConnection();
-        
+
         User user = new User(userFirstName, userLastName, userPassword, userEmail, userStack);
 
         string safeEmail = DatabaseManager.safeEmail(userEmail);
@@ -68,8 +68,7 @@ class DatabaseManager
         Console.WriteLine("Trying to set a value");
 
         SetResponse response = client.Set(@"Users/" + safeEmail, user);
-        
+
         Console.WriteLine("Finished setting a value");
     }
-
 }
