@@ -13,6 +13,7 @@ namespace Mediocrity.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         static private User tempUser;
+        private List<string> techsList = new List<string>();
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -106,6 +107,7 @@ namespace Mediocrity.Controllers
 
         public IActionResult AboutMe()
         {
+            ViewBag.TECHS = techsList;
             return View();
         }
 
@@ -113,6 +115,31 @@ namespace Mediocrity.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+
+        [HttpPost]
+        public IActionResult AddButton(string buttonName)
+        {
+            if (!string.IsNullOrEmpty(buttonName))
+            {
+                StackRepository.addStack(buttonName);
+                return View("AboutMe", StackRepository.Stack);
+            }
+
+            return View("AboutMe");
+        }
+
+        [HttpPost]
+        public IActionResult AddUserInfo(string info)
+        {
+            if (!string.IsNullOrEmpty(info))
+            {
+                StackRepository.addStack(info);
+                return View("AboutMe", StackRepository.UserInfo);
+            }
+
+            return View("AboutMe");
         }
     }
 }

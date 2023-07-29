@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model IEnumerable<string>
+
+<!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
@@ -47,7 +49,9 @@
         }
 
         .main_form {
-            max-width: 50%;
+            max-width: 80%;
+            display: flex;
+            justify-content: space-between;
             height: 91vh;
             margin: 0 auto;
             padding: 20px;
@@ -144,51 +148,102 @@
             font-size: 20px;
             font-family: Inter;
             font-style: normal;
-            text-align: center;
+            text-align: center;  
         }
+
+        .square-container {
+            display: flex;
+            flex-wrap: wrap;
+
+
+        }
+        .square-container button {
+                width: 140px;
+                height: 40px;
+                flex-shrink: 0;
+                border-radius: 11px;
+                border: 3px solid #2E3132;
+                background: #2E3132;
+                margin: 20px;
+                cursor: pointer;
+        }
+
+        .square-container button:hover {
+                background-color: #4B5157;
+                border: 3px solid #4B5157;
+        }
+
+        .square-container button:active {
+            border-color: white; /* Золотий колір границь при натисканні */
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
-        <form action="#" method="POST" class="main_form">
+        <form asp-controller="Home" asp-action="AddUserInfo" method="POST" class="main_form">
             <div class="spiski">
                 <h2>Розкажіть про себе ^_^</h2>
                 <label for="">Посада у команді</label>
                 <div>
-                    <select class="s1" onchange="updateTextBox('s1')">
-                        <option value="">Backend</option>
-                        <option value="">Frontend</option>
-                        <option value="">Менеджер команди</option>
+                    <select class="s1" name="Position">
+                        <option value="Backend">Backend</option>
+                        <option value="Frontend">Frontend</option>
+                        <option value="Менеджер команди">Менеджер команди</option>
                     </select>
                 </div>
                 <label for="">Досвід роботи</label>
                 <div>
-                    <select class="s2" onchange="updateTextBox('s2')">
-                        <option value="">менше 1 року</option>
-                        <option value="">від 1 до 3 років</option>
-                        <option value="">від 3 до 5 років</option>
-                        <option value="">більше 5 років</option>
+                    <select class="s2" name="Experience">
+                        <option value="менше 1 року">менше 1 року</option>
+                        <option value="від 1 до 3 років">від 1 до 3 років</option>
+                        <option value="від 3 до 5 років">від 3 до 5 років</option>
+                        <option value="більше 5 років">більше 5 років</option>
                     </select>
                 </div>
                 <label for="">Рівень англійської</label>
                 <div>
-                    <select class="s3" onchange="updateTextBox('s3')">
-                        <option value="">B1 - Середній</option>
-                        <option value="">B2 - Вищий середній</option>
-                        <option value="">C2 - Високий</option>
+                    <select class="s3" name="EnglishLevel">
+                        <option value="B1 - Середній">B1 - Середній</option>
+                        <option value="B2 - Вищий середній">B2 - Вищий середній</option>
+                        <option value="C2 - Високий">C2 - Високий</option>
                     </select>
                 </div>
             </div>
-            <div class="buttons">
+            
+            @{
 
+                var buttonNames = new string[] { "ASP.NET", "Java", "C++", "C#", "Swift", "Python", "C", "FireBase", "C++"};
+            }
+            <div class="square-container">
+                @foreach (var name in buttonNames)
+                {
+                    <div class=".butt">
+                        <form asp-controller="Home" asp-action="AddButton" method="post">
+                            <button type="submit" name="buttonName" value="@name">@name</button>
+                        </form>
+                    </div>
+                }
             </div>
         </form>
     </div>
+@*<h3>TECHS:</h3>
+    @if (Model != null)
+    {
+        @foreach (string tech in Model)
+        {
+            <p>@tech</p>
+        }
+    }
+    else
+    {
+        <p>No data available.</p>
+    }*@
 
+@*
     <div class="square">
         <span>Angular</span>
     </div>
-
     <div class="square1">
         <span>ASP.NET</span>
     </div>
@@ -208,19 +263,34 @@
         <span>Swift</span>
     </div>
     <div class="square5">
-        <span>Давай почнемо, бро</span>
+        <span><a>>Давай почнемо, бро</a></span>
     </div>
-
+    *@
     <script>
         // Додаємо обробники подій для зміни стану активності елементів при натисканні
-        const squares = document.querySelectorAll('.square, .square1, .square2, .square3, .square4, .square6, .square5');
+        const squares = document.querySelectorAll('.square-container button');
         squares.forEach(square => {
             square.addEventListener('click', () => {
                 square.classList.toggle('active');
             });
         });
-
-      
     </script>
+
+
+@*    <div class="square-container">
+    @foreach (var name in buttonNames)
+    {
+        <div class=".butt">
+            <form asp-controller="Home" asp-action="AddButton" method="post">
+                <button type="submit" name="buttonName" value="@name">@name</button>
+            </form>
+        </div> 
+    }
+    </div>*@
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </body>
 </html>
