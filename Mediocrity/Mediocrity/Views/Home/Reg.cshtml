@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/reg_form.css">
+    <link rel="stylesheet" href="~/css/reg_form.css">
     <title>Registration</title>
     <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@700&display=swap" rel="stylesheet">
 </head>
@@ -29,7 +29,7 @@
             <input type="submit" value="Зарегистрироваться" style="font-family: 'Handjet', cursive; font-size: 16px;">
           </div>
           <div class="form-group">
-            <a href="Auth.cshtml">Вже маєш акаунт?</a>
+            <a asp-controller="Home" asp-action="Auth">Вже маєш акаунт?</a>
           </div>
         </form>
       </div>

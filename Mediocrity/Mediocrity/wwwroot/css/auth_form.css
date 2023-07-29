@@ -35,6 +35,17 @@ body {
     background-color: #ccc;
     border-radius: 40px;
 }
+
+ .form-group-right a{
+     float:right;
+     text-decoration: none;
+     margin-top: -40px;
+     font-size: 14px;
+     margin-right: 25px;
+     color: #74649B;
+     font-family: 'Handjet', cursive;
+ }
+  
   .form-group input[type="submit"] {
     background-color: #3366bb;
     width: 100%;
