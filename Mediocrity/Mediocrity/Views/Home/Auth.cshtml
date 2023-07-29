@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Authorization</title>
     <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/auth_form.css">
+    <link rel="stylesheet" href="~/css/auth_form.css">
 </head>
 <body>
     <div class="container">
@@ -17,16 +17,16 @@
           <div class="form-group">
             <input type="password" id="password" name="password" required placeholder="Password" class="pass">
           </div>
+          <div class="form-group-right">
+            <a href="#">Забув пароль?</a>
+          </div>
           
           
           <div class="form-group">
             <input type="submit" value="Увійти" style="font-family: 'Handjet', cursive; font-size: 18px;">
           </div>
           <div class="form-group">
-            <a href="Reg.cshtml">Ще не маєш акаунту?</a>
-          </div>
-          <div class="form-group">
-            <a href="#">Забув пароль?</a>
+            <a asp-controller="Home" asp-action="Reg">Ще не маєш акаунту?</a>
           </div>
         </form>
       </div>
