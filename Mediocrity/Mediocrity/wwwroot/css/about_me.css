@@ -1,0 +1,145 @@
+/*body{
+    background-color: #222526;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+}
+
+.spiski h2{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 70px;
+    color: #ffffff;
+    font-family: Inter;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    
+    
+}
+
+.main_form {
+    max-width: 50%;
+    height: 91vh;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #33373D;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.spiski {
+    display: flex;
+    justify-content: left;
+    flex-flow: column;
+    align-items: left;
+    margin-bottom: 15px;
+}
+
+label {
+    color: #FFF;
+font-family: Inter;
+font-size: 20px;
+font-style: normal;
+font-weight: 300;
+line-height: normal;
+}
+  
+/* Spiski */
+.s1,.s2,.s3 {
+    width: 300px;
+    height: 30px;
+    padding: 20px;
+    max-width: 300px;
+    margin-bottom: 50px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    font-family: Inter;
+}
+
+.b1
+{
+    position: absolute;
+    display: flex;
+    justify-content: flex-end
+    ;
+}
+
+
+
+/***********/
+.square span, .square1 span, .square2 span, .square3 span, .square4 span, .square6 span, .square5 span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+  
+.square, .square1, .square2, .square3, .square4,.square6 {
+    width: 140px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 3px solid #74649B;
+    background: #2E3132;
+    position: absolute;
+  }
+  
+  .square {
+    top: 200px;
+    left: 970px;
+  }
+  
+  .square1 {
+    top: 200px;
+    left: 1130px;
+  }
+  
+  .square2 {
+    top: 200px;
+    left: 1290px;
+  }
+  
+  .square3 {
+    top: 300px;
+    left: 970px;
+  }
+  
+  .square4 {
+    top: 300px;
+    left: 1130px;
+  }
+  .square6{
+    top: 400px;
+    left: 970px;
+  }
+  .square5{
+    width: 243px;
+    height: 43px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #74649B;
+    position: absolute;
+    top: 800px;
+    left: 850px;
+  }
+  
+  .square5 span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 25px;
+    font-family: Inter;
+    font-style: normal;
+    text-align: center;
+}

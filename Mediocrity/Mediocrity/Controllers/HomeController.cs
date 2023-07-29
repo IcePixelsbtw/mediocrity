@@ -95,7 +95,7 @@ namespace Mediocrity.Controllers
             }
         }
 
-        public IActionResult O_sebe()
+        public IActionResult AboutMe()
         {
             return View();
         }
