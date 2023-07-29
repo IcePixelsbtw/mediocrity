@@ -1,0 +1,197 @@
+/* body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #067d7d;
+}
+
+ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+li{
+    display: block;
+    padding: 0 20px;
+    color: #fff;
+    font-size: 25px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    transition: 0.7s;
+}
+
+li a{
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+}
+
+ul li a:hover{
+    font-size: 25px;
+    color: #046969;
+    border-bottom: 5px solid #5757a0;
+    transition: 0.25s;
+} */
+
+body
+{
+    background-color: #222526;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+nav li {
+    margin: 0 10px;
+}
+  
+nav .men {
+    
+    display: flex;
+    padding: 15px;
+    margin-right: 15px;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #8b8b8b;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+  
+nav .men:hover {
+    color: #3366bb;
+    border-bottom: 2px solid #3366bb;
+    transition: 0.2s;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 3px;
+    padding-left: 10px;
+    background-color: #313131;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #3366bb;
+}
+
+.ico {
+    margin-right: 10px;
+}
+  
+.ico img {
+    width: 50px;
+}
+
+.priv{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    margin-bottom: 25px;
+}
+
+.privtxt{
+    display: flex;
+    justify-content: center;
+    font-family: 'Handjet', cursive; font-size: 50px;
+    color: #3366bb;
+    padding-bottom: 50px;
+}
+
+/* основной блок О нас */
+.onas{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* блоки О нас */
+.onas1{
+    width: 700px;
+    height: 60px;
+    margin-bottom: 15px;
+    margin-top: 50px;
+    border-radius: 40px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    font-family: 'Handjet', cursive;
+    font-size: 25px;
+    align-items: center;
+}
+.onas2 {
+    width: 700px;
+    height: 60px;
+    margin-bottom: 150px;
+    margin-top: 150px;
+    margin-left: -1000px;
+    border-radius: 40px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    font-family: 'Handjet', cursive;
+    font-size: 25px;
+    align-items: center;
+}
+.onas3 {
+    width: 700px;
+    height: 60px;
+    margin-top: 250px;
+    margin-left: -1000px;
+    border-radius: 40px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    font-family: 'Handjet', cursive;
+    font-size: 25px;
+    align-items: center;
+}
+
+/* Кнопка для регистрации на мейн фрейме (не сверху) */
+
+.btn_for_reg{
+    height: 60px;
+    width: fit-content;
+    border-radius: 40px;
+    margin-top: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.25s;
+}
+
+.btn_for_reg a{
+    text-decoration: none;
+    padding: 25px;
+    color: #8b8b8b;
+    font-family: 'Handjet', cursive;
+    font-size: 25px;
+}
+
+.btn_for_reg a:hover{
+    color: #3366bb;
+    transition: 0.25s;
+}
+
+.btn_for_reg:hover{
+    color: #3366bb;
+    border-bottom: 2px solid #3366bb;
+    transition: 0.25s;
+}
+.div_for_btn {
+    display: flex;
+    justify-content: center;
+}

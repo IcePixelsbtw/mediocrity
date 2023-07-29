@@ -6,4 +6,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\css\auth_form.css" />
+    <None Include="wwwroot\css\index.css" />
+    <None Include="wwwroot\css\main_page.css" />
+    <None Include="wwwroot\css\o_sebe.css" />
+    <None Include="wwwroot\css\reg_form.css" />
+  </ItemGroup>
+
 </Project>
