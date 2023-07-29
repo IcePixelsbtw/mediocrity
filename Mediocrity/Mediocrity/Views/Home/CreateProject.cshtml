@@ -1,4 +1,5 @@
-﻿@model User
+@model Project
+
 @{
     string wasCreated = ViewBag.IsCreated;
 }
@@ -8,37 +9,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="~/css/reg_form.css">
-    <title>Registration</title>
+    <link rel="stylesheet" href="~/css/create_project.css">
+    <title>Створення проєкту</title>
     <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@700&display=swap" rel="stylesheet">
 </head>
 <body> 
     <div class="container">
-        <h2>Регистрация</h2>
+        <h2>Створення проєкту</h2>
         <form action="Registrate" method="post">
           <div class="form-group">
-            <input type="email" id="email" name="email" required placeholder="exampleemail@mediocrities.com"
-                asp-for="Email">
+            <input type="text" required placeholder="Назва проєкту"
+                asp-for="Title">
           </div>
           <div class="form-group">
-            <input type="password" id="password" name="password" required placeholder="Password"
-                asp-for="Password">
+            <textarea type="text" id="password" name="password" class="text_area" required placeholder="Опис"
+                asp-for="Description"></textarea>
           </div>
-          <div class="form-group inline">
-            <div>
-
-                    <input asp-for="FirstName" required placeholder="First name">
+            <div class="form-group inline">
+                <div>
+                    <input asp-for="ParticipantsNumber" required placeholder="Число учасників">
+                </div>
+                <div>
+                    <input asp-for="Price" class="price" required placeholder="Ціна">
+                </div>
             </div>
-            <div>
-                    <input asp-for="LastName" required placeholder="Last name">
+            <div class="form-group_contact inline">
+              <input asp-for="ContactInfo" class="contact" required placeholder="Зв'язок">
             </div>
-          </div>
           <div class="form-group">
-            <input type="submit" value="Зарегистрироваться" style="font-family: 'Handjet', cursive; font-size: 16px;">
+            <input type="submit" value="Створити проєкт" style="font-family: 'Handjet', cursive; font-size: 16px;">
           </div>
-          <div class="form-group">
-                <a asp-controller="Home" asp-action="Auth">Вже маєш акаунт?</a>
-            </div>
             @if (wasCreated == "0")
             {
                 <div class="alert alert-danger" id="errorBox">
@@ -55,9 +55,6 @@
             document.getElementById('errorBox').style.display = 'none';
         });
     </script>
-      @*
-    class="sname" id="surname" name="surname" required placeholder="Last name"
-    id="name" name="name" required placeholder="Name"
-      *@
+
 </body>
 </html>
