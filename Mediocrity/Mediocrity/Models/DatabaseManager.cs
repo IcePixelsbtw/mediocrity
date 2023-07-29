@@ -65,12 +65,12 @@ class DatabaseManager
         return true;
     }
     
-    public static void createNewUser(string userFirstName,string userLastName, string userPassword, string userEmail, string[] userStack)
+    public static bool createNewUser(string userFirstName,string userLastName, string userPassword, string userEmail, string[] userStack)
     {
 
         if (DatabaseManager.doesExist(userEmail))
         {
-            return;
+            return false;
         }
 
         IFirebaseClient client = DatabaseManager.establishDataBaseConnection();
@@ -84,6 +84,8 @@ class DatabaseManager
         SetResponse response = client.Set(@"Users/" + safeEmail, user);
         
         Console.WriteLine("Finished setting a value");
+
+        return true;
     }
 
 }

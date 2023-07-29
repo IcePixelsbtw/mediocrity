@@ -5,9 +5,7 @@ using System.Net;
 using FirebaseAdmin.Auth;
 using FireSharp.Interfaces;
 using FireSharp.Response;
-using Microsoft.AspNetCore.Identity;
 using System.Net.Mail;
-
 
 namespace Mediocrity.Controllers
 {
@@ -15,7 +13,6 @@ namespace Mediocrity.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         static private User tempUser;
-        static private User loggedUser;
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -42,28 +39,39 @@ namespace Mediocrity.Controllers
         {
             tempUser = a;
             string[] b = { "Test Tech1", "Test Tech2" };
-            DatabaseManager.createNewUser("" + tempUser.FirstName, "" + tempUser.LastName, "" + tempUser.Password, "" + tempUser.Email, b);
-            
-            string fromMail = "mediocrity.notify@gmail.com";
-            string fromPassword = "fssruwuhlvapjpuj";
-            MailMessage message = new MailMessage();
-            message.From = new MailAddress(fromMail);
-            message.Subject = "Успішна реєстрація";
-            string recipient = tempUser.Email;
-            message.To.Add(new MailAddress(recipient));
-            
-            message.Body = "Вас успішно зареєстровано на платформі Mediocrity :)";
-            
-            var smtpClient = new SmtpClient("smtp.gmail.com")
+            bool creationResult = DatabaseManager.createNewUser("" + tempUser.FirstName, "" + tempUser.LastName, "" + tempUser.Password, "" + tempUser.Email, b);
+
+
+            if (creationResult)
             {
-                Port = 587,
-                Credentials = new NetworkCredential(fromMail, fromPassword),
-                EnableSsl = true,
-            };
-            
-            smtpClient.Send(message);
-            
-            return View("Auth");
+                string fromMail = "mediocrity.notify@gmail.com";
+                string fromPassword = "fssruwuhlvapjpuj";
+                MailMessage message = new MailMessage();
+                message.From = new MailAddress(fromMail);
+                message.Subject = "Успішна реєстрація";
+                string recipient = tempUser.Email;
+                message.To.Add(new MailAddress(recipient));
+
+                message.Body = "Вас успішно зареєстровано на платформі Mediocrity :)";
+
+                var smtpClient = new SmtpClient("smtp.gmail.com")
+                {
+                    Port = 587,
+                    Credentials = new NetworkCredential(fromMail, fromPassword),
+                    EnableSsl = true,
+                };
+
+                smtpClient.Send(message);
+                ViewBag.IsCreated = "1";
+
+                return View("Auth");
+            }
+            else
+            {
+                ViewBag.IsCreated = "0";
+                return View("Reg");
+            }
+
         }
 
         [HttpPost]
@@ -87,6 +95,7 @@ namespace Mediocrity.Controllers
             if (DatabaseManager.isEqual(ResultUser, CurrentUser))
             {
                 ViewBag.StaticValue = "Logged";
+                ViewBag.CurrentUserEmail = user.Email;
                 return View("Index");
             }
             else
