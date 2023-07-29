@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    string valueFromHomeController = ViewBag.StaticValue;
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -45,7 +49,14 @@
         </i>
         <nav>
             <ul>
-                <li><a asp-controller="Home" asp-action="Reg" class = "men" style="font-family: 'Handjet', cursive; font-size: 20px; height: 13px;">Sign up</a></li>
+                @if (valueFromHomeController != "Logged")
+                {
+                    <li><a asp-controller="Home" asp-action="Reg" class="men" style="font-family: 'Handjet', cursive; font-size: 20px; height: 13px;">Sign up</a></li>
+                }
+                else 
+                {
+                    <li><a asp-controller="Home" asp-action="O_sebe" class="men" style="font-family: 'Handjet', cursive; font-size: 20px; height: 13px;">Profile</a></li>
+                }
             </ul>
         </nav>
     </header>

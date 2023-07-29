@@ -4,6 +4,7 @@ using System.Diagnostics;
 using FirebaseAdmin.Auth;
 using FireSharp.Interfaces;
 using FireSharp.Response;
+using Microsoft.AspNetCore.Identity;
 
 namespace Mediocrity.Controllers
 {
@@ -11,6 +12,7 @@ namespace Mediocrity.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         static private User tempUser;
+        static private User loggedUser;
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -62,15 +64,18 @@ namespace Mediocrity.Controllers
 
             if (DatabaseManager.isEqual(ResultUser, CurrentUser))
             {
-                //If login succeeded
+                ViewBag.StaticValue = "Logged";
                 return View("Index");
             }
             else
             {
                 return View("Auth");
             }
+        }
 
-            
+        public IActionResult O_sebe()
+        {
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
