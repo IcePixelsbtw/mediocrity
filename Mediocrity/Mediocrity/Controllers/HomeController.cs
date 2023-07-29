@@ -1,10 +1,13 @@
 ﻿using Mediocrity.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Net;
 using FirebaseAdmin.Auth;
 using FireSharp.Interfaces;
 using FireSharp.Response;
 using Microsoft.AspNetCore.Identity;
+using System.Net.Mail;
+
 
 namespace Mediocrity.Controllers
 {
@@ -40,7 +43,26 @@ namespace Mediocrity.Controllers
             tempUser = a;
             string[] b = { "Test Tech1", "Test Tech2" };
             DatabaseManager.createNewUser("" + tempUser.FirstName, "" + tempUser.LastName, "" + tempUser.Password, "" + tempUser.Email, b);
-
+            
+            string fromMail = "mediocrity.notify@gmail.com";
+            string fromPassword = "fssruwuhlvapjpuj";
+            MailMessage message = new MailMessage();
+            message.From = new MailAddress(fromMail);
+            message.Subject = "Успішна реєстрація";
+            string recipient = tempUser.Email;
+            message.To.Add(new MailAddress(recipient));
+            
+            message.Body = "Вас успішно зареєстровано на платформі Mediocrity :)";
+            
+            var smtpClient = new SmtpClient("smtp.gmail.com")
+            {
+                Port = 587,
+                Credentials = new NetworkCredential(fromMail, fromPassword),
+                EnableSsl = true,
+            };
+            
+            smtpClient.Send(message);
+            
             return View("Auth");
         }
 
