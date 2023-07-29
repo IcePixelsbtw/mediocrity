@@ -1,6 +1,9 @@
 ﻿using Mediocrity.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using FirebaseAdmin.Auth;
+using FireSharp.Interfaces;
+using FireSharp.Response;
 
 namespace Mediocrity.Controllers
 {
@@ -40,10 +43,34 @@ namespace Mediocrity.Controllers
         }
 
         [HttpPost]
-        public IActionResult SelectStack()
+        public IActionResult SelectStack(User user)
         {
+            // LOG IN
             
-            return View("Auth");
+            string safeEmail = DatabaseManager.safeEmail(user.Email);
+
+            IFirebaseClient client = DatabaseManager.establishDataBaseConnection();
+            
+            FirebaseResponse result = client.Get(@"Users/" + safeEmail);
+            User ResultUser = result.ResultAs<User>();
+
+            User CurrentUser = new User()
+            {
+                Email = user.Email,
+                Password = user.Password
+            };
+
+            if (DatabaseManager.isEqual(ResultUser, CurrentUser))
+            {
+                //If login succeeded
+                return View("Index");
+            }
+            else
+            {
+                return View("Auth");
+            }
+
+            
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
