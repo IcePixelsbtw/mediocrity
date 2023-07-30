@@ -96,7 +96,7 @@ namespace Mediocrity.Controllers
             if (DatabaseManager.isEqual(ResultUser, CurrentUser))
             {
                 ViewBag.StaticValue = "Logged";
-                ViewBag.CurrentUserEmail = user.Email;
+                StackRepository.setEmail(CurrentUser.Email);
                 return View("Main");
             }
             else
@@ -110,7 +110,7 @@ namespace Mediocrity.Controllers
             ViewBag.TECHS = techsList;
             return View();
         }
-        
+
         [HttpGet]
         public IActionResult CreateProject()
         {
@@ -136,35 +136,33 @@ namespace Mediocrity.Controllers
 
             if (creationResult)
             {
-                // string fromMail = "mediocrity.notify@gmail.com";
-                // string fromPassword = "fssruwuhlvapjpuj";
-                // MailMessage message = new MailMessage();
-                // message.From = new MailAddress(fromMail);
-                // message.Subject = "Успішно створено новий проєкт";
-                // string recipient = tempUser.Email;
-                // message.To.Add(new MailAddress(recipient));
-                //
-                // message.Body = "Вас успішно створили новий проєкт "+project.Title+" на платформі Mediocrity :)";
-                //
-                // var smtpClient = new SmtpClient("smtp.gmail.com")
-                // {
-                //     Port = 587,
-                //     Credentials = new NetworkCredential(fromMail, fromPassword),
-                //     EnableSsl = true,
-                // };
-                //
-                // smtpClient.Send(message);
+                 string fromMail = "mediocrity.notify@gmail.com";
+                 string fromPassword = "fssruwuhlvapjpuj";
+                 MailMessage message = new MailMessage();
+                 message.From = new MailAddress(fromMail);
+                 message.Subject = "Успішно створено новий проєкт";
+                 string recipient = StackRepository.UserInfo;
+                 message.To.Add(new MailAddress(recipient));
+                
+                 message.Body = "Вас успішно створили новий проєкт "+project.Title+" на платформі Mediocrity :)";
+                
+                 var smtpClient = new SmtpClient("smtp.gmail.com")
+                 {
+                     Port = 587,
+                     Credentials = new NetworkCredential(fromMail, fromPassword),
+                     EnableSsl = true,
+                 };
+                
+                smtpClient.Send(message);
                 ViewBag.IsCreated = "1";
 
-                return View("Auth");////////////////////////////////////////////
+                return View("Index");////////////////////////////////////////////
             }
             else
             {
                 ViewBag.IsCreated = "0";
                 return View("Reg");/////////////////////////////////////////////
             }
-            
-            return View();
         }
 
 

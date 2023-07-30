@@ -3,13 +3,14 @@
     public class StackRepository
     {
         private static List<string> stack = new List<string>();
+        private static string CurrentUserEmail = string.Empty;
         public static IEnumerable<string> Stack
         {
             get { return stack; }
         }
-        public static IEnumerable<string> UserInfo
+        public static string UserInfo
         {
-            get { return stack; }
+            get { return CurrentUserEmail; }
         }
         public static void addStack(string st)
         {
@@ -22,7 +23,10 @@
                 stack.Add(st);
             }
         }
-
+        public static void setEmail(string email)
+        {
+            CurrentUserEmail = email;
+        }
         public static string[] getStackArray()
         {
             return stack.ToArray();
