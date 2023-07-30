@@ -184,17 +184,6 @@ namespace Mediocrity.Controllers
 
             return View("AboutMe");
         }
-
-        [HttpPost]
-        public IActionResult AddUserInfo(string info)
-        {
-            if (!string.IsNullOrEmpty(info))
-            {
-                StackRepository.addStack(info);
-                return View("AboutMe", StackRepository.UserInfo);
-            }
-
-            return View("AboutMe");
-        }
+        
     }
 }
