@@ -111,8 +111,59 @@ namespace Mediocrity.Controllers
             return View();
         }
         
+        [HttpGet]
         public IActionResult CreateProject()
         {
+            return View();
+        }
+        
+        
+        [HttpPost]
+        public IActionResult CreateProject(Project project)
+        {
+            Console.WriteLine(project.Title);
+            Console.WriteLine(project.Description);
+            Console.WriteLine("Кількість учасників:"+project.ParticipantsNumber);
+            Console.WriteLine("Цена:" + project.Price);
+            Console.WriteLine(project.ContactInfo);
+            
+            
+            string[] stack = { "Test Tech1", "Test Tech2" };
+            bool creationResult = DatabaseManager.createNewProject("" + project.Title, "" 
+                + project.Description, stack, project.ParticipantsNumber, project.Price,
+                ""+project.ContactInfo);
+
+
+            if (creationResult)
+            {
+                // string fromMail = "mediocrity.notify@gmail.com";
+                // string fromPassword = "fssruwuhlvapjpuj";
+                // MailMessage message = new MailMessage();
+                // message.From = new MailAddress(fromMail);
+                // message.Subject = "Успішно створено новий проєкт";
+                // string recipient = tempUser.Email;
+                // message.To.Add(new MailAddress(recipient));
+                //
+                // message.Body = "Вас успішно створили новий проєкт "+project.Title+" на платформі Mediocrity :)";
+                //
+                // var smtpClient = new SmtpClient("smtp.gmail.com")
+                // {
+                //     Port = 587,
+                //     Credentials = new NetworkCredential(fromMail, fromPassword),
+                //     EnableSsl = true,
+                // };
+                //
+                // smtpClient.Send(message);
+                ViewBag.IsCreated = "1";
+
+                return View("Auth");////////////////////////////////////////////
+            }
+            else
+            {
+                ViewBag.IsCreated = "0";
+                return View("Reg");/////////////////////////////////////////////
+            }
+            
             return View();
         }
 
