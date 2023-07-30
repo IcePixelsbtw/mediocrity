@@ -196,5 +196,10 @@ namespace Mediocrity.Controllers
 
             return View("AboutMe");
         }
+
+        public IActionResult Main()
+        {
+            return View();
+        }
     }
 }
