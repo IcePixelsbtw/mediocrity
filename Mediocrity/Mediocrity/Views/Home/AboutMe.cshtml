@@ -177,6 +177,34 @@
             border-color: white; /* Золотий колір границь при натисканні */
         }
 
+        .btnch {
+            width: 150px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: transparent;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .glowing {
+            box-shadow: 0 0 10px violet;
+            animation: glow-animation 1s infinite;
+        }
+
+        a@keyframes glow-animation {
+            0% {
+                box-shadow: 0 0 10px violet;
+            }
+            50% {
+                box-shadow: 0 0 20px violet;
+            }
+            100% {
+                box-shadow: 0 0 10px violet;
+            }
+        }
     </style>
 </head>
 <body>
@@ -220,7 +248,7 @@
                 {
                     <div class=".butt">
                         <form asp-controller="Home" asp-action="AddButton" method="post">
-                            <button type="submit" name="buttonName" value="@name">@name</button>
+                            <button onclick="toggleGlow()" type="submit" name="buttonName" class="btnch" value="@name">@name</button>
                         </form>
                     </div>
                 }
@@ -268,12 +296,14 @@
     *@
     <script>
         // Додаємо обробники подій для зміни стану активності елементів при натисканні
-        const squares = document.querySelectorAll('.square-container button');
-        squares.forEach(square => {
-            square.addEventListener('click', () => {
-                square.classList.toggle('active');
-            });
-        });
+        function toggleGlow() {
+            var block = document.querySelecter('.btnch');
+            if (block.classList.contains('glowing')) {
+                block.classList.remove('glowing');
+            } else {
+                block.classList.add('glowing');
+            }
+        }
     </script>
 
 

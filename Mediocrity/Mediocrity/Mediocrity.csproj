@@ -19,6 +19,7 @@
     <PackageReference Include="FireSharp" Version="2.0.4" />
     <PackageReference Include="FireSharp.Serialization.JsonNet" Version="1.1.0" />
     <PackageReference Include="FireSharp.Serialization.ServiceStack" Version="1.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
 </Project>

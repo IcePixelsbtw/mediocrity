@@ -97,7 +97,7 @@ namespace Mediocrity.Controllers
             {
                 ViewBag.StaticValue = "Logged";
                 StackRepository.setEmail(CurrentUser.Email);
-                return View("CreateProject");
+                return View("Main");
             }
             else
             {
