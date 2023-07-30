@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .square-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .square-container button {
+            width: 140px;
+            height: 40px;
+            flex-shrink: 0;
+            border-radius: 11px;
+            border: 3px solid #2E3132;
+            background: #2E3132;
+            position: absolute;
+            transition: border-color 0.3s ease;
+            margin: 20px;
+            padding-left: 30px;
+    }
+    /* Стили для квадратов */
+    .butt {
+        width: 140px;
+        height: 40px;
+        flex-shrink: 0;
+        border-radius: 11px;
+        border: 3px solid #2E3132;
+        background: #2E3132;
+        position: absolute;
+        transition: border-color 0.3s ease;
+        margin: 20px; /* Внешние отступы между квадратами */
+        
+    }
+</style>
+</head>
+<body>
+    <div class="square-container">
+        <button type="submit"name="buttonName" value="@name">@name</button>
+    </div>
+</body>
+</html>
