@@ -97,7 +97,7 @@ namespace Mediocrity.Controllers
             {
                 ViewBag.StaticValue = "Logged";
                 ViewBag.CurrentUserEmail = user.Email;
-                return View("Index");
+                return View("Main");
             }
             else
             {
