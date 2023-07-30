@@ -78,7 +78,6 @@ class DatabaseManager
     // Creates a new user with parameters as in constructor
     public static bool createNewUser(string userFirstName,string userLastName, string userPassword, string userEmail, string[] userStack)
     {
-
         if (DatabaseManager.doesExist(userEmail))
         {
             return false;
@@ -225,6 +224,35 @@ class DatabaseManager
             j++;
         }
         return newArray;
+    }
+
+    // Get all users. Then u can pick a user via safeEmail
+    
+    public static  Dictionary<string, User> getAllUsers()
+    {
+
+        IFirebaseClient client = DatabaseManager.establishDataBaseConnection();
+        
+        string path = "Users/";
+        
+        FirebaseResponse result = client.Get(path);
+        Dictionary<string, User> userData = result.ResultAs<Dictionary<string, User>>();
+
+        return userData;
+    }
+    
+    //Get all projects. Use it via projectID
+    
+    public static Dictionary<string, Project> getAllProjects()
+    {
+        IFirebaseClient client = DatabaseManager.establishDataBaseConnection();
+        
+        string path = "Projects/";
+        
+        FirebaseResponse result = client.Get(path);
+        Dictionary<string, Project> projects = result.ResultAs<Dictionary<string, Project>>();
+
+        return projects;
     }
 
 }
