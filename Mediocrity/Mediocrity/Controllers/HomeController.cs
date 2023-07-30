@@ -185,5 +185,21 @@ namespace Mediocrity.Controllers
             return View("AboutMe");
         }
         
+        public IActionResult Account()
+        {
+            return View();
+        }
+        
+        public IActionResult LogOut()
+        {
+            ViewBag.StaticValue = "not";
+            return View("Index");
+        }
+        
+        public IActionResult Main()
+        {
+            return View();
+        }
+        
     }
 }

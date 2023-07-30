@@ -1,23 +1,46 @@
-﻿@{
-    string valueFromHomeController = ViewBag.StaticValue;
-}
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Заголовок сторінки</title>
+    
+    <link rel="stylesheet" href="~/css/prof_page.css">
+    <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@700&display=swap" rel="stylesheet">
+    
+  </head>
+  <body>
+    <!-- <div class="square">
+      <div class="project">
+        <span>Проект</span>
+      </div>
+      <div class="events">
+        <span>Події</span>
+      </div>
+      <div class="teams">
+        <span>Команди</span>
+      </div>
+      <div class="logOut">
+        <span>Log out</span>
+      </div>
+      <div class="status">
+        <span>online</span>
+        <div class="statusCycle"></div>
+      </div>
+      <div class="square2">
+        <div class="headSkills">
+          Skills
+        </div>
+        <div class = "headInfo">
+            Info
+        </div> -->
 
-    <link rel="stylesheet" href="~/css/main_page.css">
-    <link href = "https://fonts.googleapis.com/css2?family=Handjet:wght@700&display=swap" rel = "stylesheet">
 
-</head>
-<body>
-    <header>
+      <header>
         <div class="icon_other">
         <i>
-                <a href="#">
+            <a href="main.html">
                 <svg width="50" height="50" viewBox="0 0 69 68" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g filter="url(#filter0_i_0_1)">
                 <ellipse cx="34.6167" cy="34" rx="34.0944" ry="34" fill="#4E99D2"/>
@@ -64,88 +87,47 @@
         </nav>
         </div>
         <div class="otherrr">
-        <nav>
+          <nav>
             <ul>
-                    @if (valueFromHomeController != "Logged")
-                    {
-                        <li><a asp-controller="Home" asp-action="Reg" class="men" style="font-family: 'Handjet', cursive; font-size: 20px; height: 13px;">Sign up</a></li>
-                    }
-                    else
-                    {
-                        <li><a asp-controller="Home" asp-action="Account" class="men" style="font-family: 'Handjet', cursive; font-size: 20px; height: 13px;">Profile</a></li>
-                    }
-                </ul>
-        </nav>
+                <li class="status">
+                    <p>Status</p>
+                    <i>
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="5" cy="5" r="5" fill="#038E00"/>
+                      </svg>
+                    </i>                    
+                </li>
+                <li>
+                  <a asp-controller="Home" asp-action="LogOut" class = "men" style="font-family: 'Handjet', cursive; font-size: 20px; height: 13px;">Log out</a>
+                </li>
+            </ul>
+          </nav>
         </div>
-    </header>
+      </header>
 
-
-    <div class="container">
-        <form class="form">
-          <div class="form_cont">
-            <div class="avatar">
+      <div class="container">
+        <form class="prof_form">
+          
+          <div class="name_photo">
+            <div class="accountFoto">
             </div>
-            <div class="naming">
-                <p>Sergey Sternenko</p>
-            </div>
-            <div class="buttons">
-
-            </div>
-            <div class="invite">
-                <input type="submit" value="Invite">
-            </div>
+            <p>Ivan Petruk</p>
           </div>
-          <div class="form_cont">
-            <div class="avatar1">
+          
 
-            </div>
-            <div class="naming">
-                <p>Sergey Stephenko</p>
-            </div>
-            <div class="buttons">
-
-            </div>
-            <div class="invite">
-                <input type="submit" value="Invite">
-            </div>
+          <div class ="info">
+            <div class="info_cap">Contact Info</div> 
           </div>
-          <div class="form_cont">
-            <div class="avatar2">
 
+          <div class="skills">
+            <div class="skills_cap">Skills
             </div>
-            <div class="naming">
-                <p>Sergey Stecenko</p>
-            </div>
-            <div class="buttons">
-
-            </div>
-            <div class="invite">
-                <input type="submit" value="Invite">
-            </div>
+            <p class="skills_txt">English lvl: C2</p>
+            <p class="skills_txt">Experience: Senior</p>
+            <p class="skills_txt">Backend Developer</p>
           </div>
-          <div class="form_cont">
-            <div class="avatar3">
 
-            </div>
-            <div class="naming">
-                <p>Sergey Vyakin</p>
-            </div>
-            <div class="buttons">
-
-            </div>
-            <div class="invite">
-                <input type="submit" value="Invite" href="#">
-            </div>
-          </div>
-        </form>
-      
-        <form class="form1">
-            <div class="form1_cont">
-                <div class="filt">
-                    <p>Filter</p>
-                </div>
-            </div>
         </form>
       </div>
-</body>
+  </body>
 </html>
