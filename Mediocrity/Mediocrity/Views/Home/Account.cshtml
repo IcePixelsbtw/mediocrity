@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Заголовок сторінки</title>
+    
+    <link rel="stylesheet" href="~/css/prof_page.css">
+    <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@700&display=swap" rel="stylesheet">
+    
+  </head>
+  <body>
+    <!-- <div class="square">
+      <div class="project">
+        <span>Проект</span>
+      </div>
+      <div class="events">
+        <span>Події</span>
+      </div>
+      <div class="teams">
+        <span>Команди</span>
+      </div>
+      <div class="logOut">
+        <span>Log out</span>
+      </div>
+      <div class="status">
+        <span>online</span>
+        <div class="statusCycle"></div>
+      </div>
+      <div class="square2">
+        <div class="headSkills">
+          Skills
+        </div>
+        <div class = "headInfo">
+            Info
+        </div> -->
+
+
+      <header>
+        <div class="icon_other">
+        <i>
+            <a href="main.html">
+                <svg width="50" height="50" viewBox="0 0 69 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g filter="url(#filter0_i_0_1)">
+                <ellipse cx="34.6167" cy="34" rx="34.0944" ry="34" fill="#4E99D2"/>
+                </g>
+                <g filter="url(#filter1_d_0_1)">
+                <path d="M39.1653 9C41.6468 9 43.893 9.53333 45.9039 10.6C47.9148 11.6667 49.4979 13.1813 50.6531 15.144C51.8083 17.1493 52.3859 19.432 52.3859 21.992V24.04H44.9413L44.9413 21.864C44.9413 19.944 44.4279 18.3653 43.401 17.128C42.3314 15.9333 40.9409 15.336 39.2295 15.336C37.8603 15.336 36.7693 15.6773 35.9564 16.36C35.1435 17.0853 34.737 18.0667 34.737 19.304C34.737 20.7547 35.2076 22.248 36.1489 23.784L56.1082 54.76L47.1233 54.76L32.1699 29.928C31.8276 29.3733 31.5067 28.7547 31.2072 28.072C30.9077 27.3893 30.6724 26.6427 30.5013 25.832V54.76L13.5583 54.76L25.2387 21.032C26.6078 17.064 28.4476 14.056 30.758 12.008C33.0256 10.0027 35.828 9 39.1653 9Z" fill="white"/>
+                </g>
+                <defs>
+                <filter id="filter0_i_0_1" x="0.522217" y="0" width="72.1889" height="72" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dx="5" dy="4"/>
+                <feGaussianBlur stdDeviation="2"/>
+                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+                <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_1"/>
+                </filter>
+                <filter id="filter1_d_0_1" x="11.5583" y="9" width="44.5499" height="45.7598" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dx="-2"/>
+                <feComposite in2="hardAlpha" operator="out"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_1"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_1" result="shape"/>
+                </filter>
+                </defs>
+                </svg>
+            </a>
+        </i>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#" class="left" style="font-family: 'Handjet', cursive; font-size: 20px; height: 13px;">Projects</a>
+                </li>
+                <li>
+                    <a href="#" class="left1" style="font-family: 'Handjet', cursive; font-size: 20px; height: 13px;">Events</a>
+                </li>
+                <li>
+                    <a href="#" class="left1" style="font-family: 'Handjet', cursive; font-size: 20px; height: 13px;">Teams</a>
+                </li>
+            </ul>
+        </nav>
+        </div>
+        <div class="otherrr">
+          <nav>
+            <ul>
+                <li class="status">
+                    <p>Status</p>
+                    <i>
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="5" cy="5" r="5" fill="#038E00"/>
+                      </svg>
+                    </i>                    
+                </li>
+                <li>
+                  <a asp-controller="Home" asp-action="LogOut" class = "men" style="font-family: 'Handjet', cursive; font-size: 20px; height: 13px;">Log out</a>
+                </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <div class="container">
+        <form class="prof_form">
+          
+          <div class="name_photo">
+            <div class="accountFoto">
+            </div>
+            <p>Ivan Petruk</p>
+          </div>
+          
+
+          <div class ="info">
+            <div class="info_cap">Contact Info</div> 
+          </div>
+
+          <div class="skills">
+            <div class="skills_cap">Skills
+            </div>
+            <p class="skills_txt">English lvl: C2</p>
+            <p class="skills_txt">Experience: Senior</p>
+            <p class="skills_txt">Backend Developer</p>
+          </div>
+
+        </form>
+      </div>
+  </body>
+</html>

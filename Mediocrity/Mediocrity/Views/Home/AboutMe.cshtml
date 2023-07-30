@@ -1,0 +1,368 @@
+﻿@model IEnumerable<string>
+@{
+    string valueFromHomeController = ViewBag.StaticValue;
+}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Документ</title>
+
+    <link rel="stylesheet" href="~/css/about_me.css">
+    <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        
+        /* Стилі для центрування назв програмних мов */
+        .square span, .square1 span, .square2 span, .square3 span, .square4 span, .square6 span, .square5 span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            text-align: center;
+            transition: color 0.3s ease; /* Анімація зміни кольору тексту при натисканні */
+        }
+
+        /* Зміна кольору тексту при натисканні на елемент */
+       
+
+        body {
+            background-color: #222526;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        .spiski h2 {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 70px;
+            color: #ffffff;
+            font-family: Inter;
+            font-size: 25px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+        }
+
+        .main_form {
+            max-width: 80%;
+            display: flex;
+            justify-content: space-between;
+            height: 91vh;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #33373D;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .spiski {
+            display: flex;
+            justify-content: left;
+            flex-flow: column;
+            margin-bottom: 15px;
+        }
+
+        label {
+            color: #FFF;
+            font-family: Inter;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: normal;
+        }
+
+        /* Spiski */
+        .s1, .s2, .s3 {
+            width: 300px;
+            height: 30px;
+            padding: 20px;
+            max-width: 300px;
+            margin-bottom: 50px;
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+            font-size: 20px;
+            color: rgb(0, 0, 0);
+            font-family: Inter;
+            transition: border-color 0.3s ease; /* Анімація зміни кольору границь при натисканні */
+        }
+
+        /* Зміна кольору границь при натисканні на елемент */
+        .s1.active, .s2.active, .s3.active {
+            border-color: violet; /* Золотий колір границь при натисканні */
+        }
+
+        .square, .square1, .square2, .square3, .square4, .square6 {
+            width: 140px;
+            height: 40px;
+            flex-shrink: 0;
+            border-radius: 11px;
+            border: 3px solid #2E3132;
+            background: #2E3132;
+            position: absolute;
+            transition: border-color 0.3s ease; /* Анімація зміни кольору границь при натисканні */
+        }
+
+        /* Зміна кольору границь при натисканні на елемент */
+        .square.active, .square1.active, .square2.active, .square3.active, .square4.active, .square6.active {
+            border-color: violet; /* Золотий колір границь при натисканні */
+        }
+
+        .square span, .square1 span, .square2 span, .square3 span, .square4 span, .square6 span, .square5 span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 16px;
+            font-family: Inter;
+            font-style: normal;
+            text-align: center;
+        }
+
+        .square5 {
+            width: 243px;
+            height: 43px;
+            flex-shrink: 0;
+            border-radius: 15px;
+            background: #74649B;
+            position: absolute;
+            top: 800px;
+            left: 850px;
+            
+        }
+
+        /* Зміна кольору границь при натисканні на елемент */
+        .square5.active {
+            border-color: white; /* Золотий колір границь при натисканні */
+        }
+
+        .square5 span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            font-family: Inter;
+            font-style: normal;
+            text-align: center;  
+        }
+
+        .square-container {
+            display: flex;
+            flex-wrap: wrap;
+
+
+        }
+        .square-container button {
+                width: 140px;
+                height: 40px;
+                flex-shrink: 0;
+                border-radius: 11px;
+                border: 3px solid #2E3132;
+                background: #2E3132;
+                margin: 20px;
+                cursor: pointer;
+        }
+
+        .square-container button:hover {
+                background-color: #4B5157;
+                border: 3px solid #4B5157;
+        }
+
+        .square-container button:active {
+            border-color: white; /* Золотий колір границь при натисканні */
+        }
+
+        .btnch {
+            width: 150px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: transparent;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .glowing {
+            box-shadow: 0 0 10px violet;
+            animation: glow-animation 1s infinite;
+        }
+
+        a@keyframes glow-animation {
+            0% {
+                box-shadow: 0 0 10px violet;
+            }
+            50% {
+                box-shadow: 0 0 20px violet;
+            }
+            100% {
+                box-shadow: 0 0 10px violet;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form asp-controller="Home" asp-action="AddButton" method="POST" class="main_form">
+            <div class="spiski">
+                <h2>Розкажіть про себе ^_^</h2>
+                <label for="">Посада у команді</label>
+                <div>
+                    <select class="s1" name="Position">
+                        <option value="Backend">Backend</option>
+                        <option value="Frontend">Frontend</option>
+                        <option value="Менеджер команди">Менеджер команди</option>
+                    </select>
+                </div>
+                <label for="">Досвід роботи</label>
+                <div>
+                    <select class="s2" name="Experience">
+                        <option value="менше 1 року">менше 1 року</option>
+                        <option value="від 1 до 3 років">від 1 до 3 років</option>
+                        <option value="від 3 до 5 років">від 3 до 5 років</option>
+                        <option value="більше 5 років">більше 5 років</option>
+                    </select>
+                </div>
+                <label for="">Рівень англійської</label>
+                <div>
+                    <select class="s3" name="EnglishLevel">
+                        <option value="B1 - Середній">B1 - Середній</option>
+                        <option value="B2 - Вищий середній">B2 - Вищий середній</option>
+                        <option value="C2 - Високий">C2 - Високий</option>
+                    </select>
+                </div>
+                <button type="submit"></button>
+                <div>
+                    <h3>Your stack:</h3>
+                    @if (Model != null)
+                    {
+                        @foreach (string tech in Model)
+                        {
+                            string a = tech + " | ";
+                            @a
+                        }
+                    }
+                    else
+                    {
+                        <p>No data available.</p>
+                    }
+                </div>
+            </div>
+               
+            @{
+
+                var buttonNames = new string[] { "HTML/CSS",
+  "JavaScript",
+  "Python",
+  "Java",
+  "C#",
+  "C++",
+  "Ruby",
+  "Swift",
+  "Kotlin",
+  "PHP",
+  "Go",
+  "TypeScript",
+  "Rust",
+  "Scala",
+  "SQL",
+  "SwiftUI",
+  "React",
+  "Angular",
+  "Vue.js",
+  "Node.js",
+  "Django",
+  "Flask",
+  "Spring",
+  "Unity",
+  "TensorFlow",};
+            }
+
+            <div class="square-container">
+                @foreach (var name in buttonNames)
+                {
+                    <div class=".butt">
+                        <form asp-controller="Home" asp-action="AddButton" method="post">
+                            <button onclick="toggleButton(this)" type="submit" name="buttonName" class="toggle-btn" value="@name">@name</button>
+                        </form>
+                    </div>
+                }
+            </div> 
+             <a asp-action="Main">
+             <div class="form-group"  style="background-color: royalblue; paddind: 15px; width: 100px;">
+                 Перейти на головну
+             </div>
+             </a>
+        </form>
+    </div>
+
+
+@*
+    <div class="square">
+        <span>Angular</span>
+    </div>
+    <div class="square1">
+        <span>ASP.NET</span>
+    </div>
+
+    <div class="square2">
+        <span>Java</span>
+    </div>
+
+    <div class="square3">
+        <span>C++</span>
+    </div>
+
+    <div class="square4">
+        <span>С#</span>
+    </div>
+    <div class="square6">
+        <span>Swift</span>
+    </div>
+    <div class="square5">
+        <span><a>>Давай почнемо, бро</a></span>
+    </div>
+    *@
+    <script>
+        // Додаємо обробники подій для зміни стану активності елементів при натисканні
+        function toggleButton(button) {
+            button.classList.toggle("active");
+        }
+        
+        function toggleGlow() {
+            var block = document.querySelecter('.btnch');
+            if (block.classList.contains('glowing')) {
+                block.classList.remove('glowing');
+            } else {
+                block.classList.add('glowing');
+            }
+        }
+    </script>
+
+
+@*    <div class="square-container">
+    @foreach (var name in buttonNames)
+    {
+        <div class=".butt">
+            <form asp-controller="Home" asp-action="AddButton" method="post">
+                <button type="submit" name="buttonName" value="@name">@name</button>
+            </form>
+        </div> 
+    }
+    </div>*@
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</body>
+</html>

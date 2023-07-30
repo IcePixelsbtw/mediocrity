@@ -1,0 +1,63 @@
+﻿@model User
+@{
+    string wasCreated = ViewBag.IsCreated;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/reg_form.css">
+    <title>Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@700&display=swap" rel="stylesheet">
+</head>
+<body> 
+    <div class="container">
+        <h2>Регистрация</h2>
+        <form action="Registrate" method="post">
+          <div class="form-group">
+            <input type="email" id="email" name="email" required placeholder="email@mediocrities.com"
+                asp-for="Email">
+          </div>
+          <div class="form-group">
+            <input type="password" id="password" name="password" required placeholder="Password"
+                asp-for="Password">
+          </div>
+          <div class="form-group inline">
+            <div>
+
+                    <input asp-for="FirstName" required placeholder="First name">
+            </div>
+            <div>
+                    <input asp-for="LastName" required placeholder="Last name">
+            </div>
+          </div>
+          <div class="form-group">
+            <input asp-controller="Home" asp-action="AboutMe" type="submit" value="Зарегистрироваться" style="font-family: 'Handjet', cursive; font-size: 16px;">
+          </div>
+          <div class="form-group">
+                <a asp-controller="Home" asp-action="Auth">Вже маєш акаунт?</a>
+            </div>
+            @if (wasCreated == "0")
+            {
+                <div class="alert alert-danger" id="errorBox">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" id="closeButton">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <i style="color: red">Помилка: такий акаунт вже існує.</i>
+                </div>
+            }
+        </form>
+      </div>
+    <script>
+            document.getElementById('closeButton').addEventListener('click', function () {
+            document.getElementById('errorBox').style.display = 'none';
+        });
+    </script>
+      @*
+    class="sname" id="surname" name="surname" required placeholder="Last name"
+    id="name" name="name" required placeholder="Name"
+      *@
+</body>
+</html>
