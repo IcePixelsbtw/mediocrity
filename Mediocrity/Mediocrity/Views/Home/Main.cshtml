@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    string valueFromHomeController = ViewBag.StaticValue;
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,7 +17,7 @@
     <header>
         <div class="icon_other">
         <i>
-            <a href="main.html">
+                <a href="#">
                 <svg width="50" height="50" viewBox="0 0 69 68" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g filter="url(#filter0_i_0_1)">
                 <ellipse cx="34.6167" cy="34" rx="34.0944" ry="34" fill="#4E99D2"/>
@@ -62,8 +66,15 @@
         <div class="otherrr">
         <nav>
             <ul>
-                <li><a href="reg.html" class = "men" style="font-family: 'Handjet', cursive; font-size: 20px; height: 13px;">Sign in</a></li>
-            </ul>
+                    @if (valueFromHomeController != "Logged")
+                    {
+                        <li><a asp-controller="Home" asp-action="Reg" class="men" style="font-family: 'Handjet', cursive; font-size: 20px; height: 13px;">Sign up</a></li>
+                    }
+                    else
+                    {
+                        <li><a asp-controller="Home" asp-action="AboutMe" class="men" style="font-family: 'Handjet', cursive; font-size: 20px; height: 13px;">Profile</a></li>
+                    }
+                </ul>
         </nav>
         </div>
     </header>
@@ -123,7 +134,7 @@
 
             </div>
             <div class="invite">
-                <input type="submit" value="Invite">
+                <input type="submit" value="Invite" href="#">
             </div>
           </div>
         </form>

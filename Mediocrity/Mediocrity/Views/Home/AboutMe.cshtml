@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<string>
-
+@{
+    string valueFromHomeController = ViewBag.StaticValue;
+}
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -205,11 +207,12 @@
                 box-shadow: 0 0 10px violet;
             }
         }
+
     </style>
 </head>
 <body>
     <div class="container">
-        <form  class="main_form">
+        <form asp-controller="Home" asp-action="AddButton" method="POST" class="main_form">
             <div class="spiski">
                 <h2>Розкажіть про себе ^_^</h2>
                 <label for="">Посада у команді</label>
@@ -237,36 +240,66 @@
                         <option value="C2 - Високий">C2 - Високий</option>
                     </select>
                 </div>
+                <button type="submit"></button>
+                <div>
+                    <h3>Your stack:</h3>
+                    @if (Model != null)
+                    {
+                        @foreach (string tech in Model)
+                        {
+                            string a = tech + " | ";
+                            @a
+                        }
+                    }
+                    else
+                    {
+                        <p>No data available.</p>
+                    }
+                </div>
             </div>
-            
+               
             @{
 
-                var buttonNames = new string[] { "ASP.NET", "Java", "C++", "C#", "Swift", "Python", "C", "FireBase", "C++"};
+                var buttonNames = new string[] { "HTML/CSS",
+  "JavaScript",
+  "Python",
+  "Java",
+  "C#",
+  "C++",
+  "Ruby",
+  "Swift",
+  "Kotlin",
+  "PHP",
+  "Go",
+  "TypeScript",
+  "Rust",
+  "Scala",
+  "SQL",
+  "SwiftUI",
+  "React",
+  "Angular",
+  "Vue.js",
+  "Node.js",
+  "Django",
+  "Flask",
+  "Spring",
+  "Unity",
+  "TensorFlow",};
             }
+
             <div class="square-container">
                 @foreach (var name in buttonNames)
                 {
                     <div class=".butt">
                         <form asp-controller="Home" asp-action="AddButton" method="post">
-                            <button onclick="toggleGlow()" type="submit" name="buttonName" class="btnch" value="@name">@name</button>
+                            <button onclick="toggleButton(this)" type="submit" name="buttonName" class="toggle-btn" value="@name">@name</button>
                         </form>
                     </div>
                 }
             </div>
         </form>
     </div>
-@*<h3>TECHS:</h3>
-    @if (Model != null)
-    {
-        @foreach (string tech in Model)
-        {
-            <p>@tech</p>
-        }
-    }
-    else
-    {
-        <p>No data available.</p>
-    }*@
+
 
 @*
     <div class="square">
@@ -296,6 +329,10 @@
     *@
     <script>
         // Додаємо обробники подій для зміни стану активності елементів при натисканні
+        function toggleButton(button) {
+            button.classList.toggle("active");
+        }
+        
         function toggleGlow() {
             var block = document.querySelecter('.btnch');
             if (block.classList.contains('glowing')) {
