@@ -1,0 +1,208 @@
+body {
+    background-color: #222526; /* Темний фоновий колір */
+    color: #fff; /* Колір тексту */
+    margin: 0; /* Видаляємо зовнішні відступи */
+    padding: 0; /* Видаляємо внутрішні відступи */
+  }
+
+
+/* header */
+
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+nav li {
+    margin: 0 10px;
+}
+
+.left{
+    display: flex;
+    justify-items: right;
+    text-decoration: none;
+    padding: 15px;
+    margin-left: 35px;
+    margin-right: 15px;
+    margin-top: -5px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: #8b8b8b;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+.left1{
+    display: flex;
+    justify-items: right;
+    text-decoration: none;
+    padding: 15px;
+    margin-right: 15px;
+    margin-top: -5px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: #8b8b8b;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+.left:hover{
+    color: #3366bb;
+    border-bottom: 2px solid #3366bb;
+    transition: 0.2s;
+}
+
+.left1:hover{
+    color: #3366bb;
+    border-bottom: 2px solid #3366bb;
+    transition: 0.2s;
+}
+
+nav .men {
+    display: flex;
+    justify-items: right;
+    padding: 15px;
+    margin-right: 15px;
+    margin-top: -5px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: #8b8b8b;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+  
+nav .men:hover {
+    color: #3366bb;
+    border-bottom: 2px solid #3366bb;
+    transition: 0.2s;
+}
+
+.icon_other{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.otherrr{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 20px;
+    width: 100px;
+    height: 40px;
+    border-radius: 40px;
+    color: #fff;
+    background-color: #222526;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.prof_form{
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    height: 50vh;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 100px;
+    border-radius: 15px;
+    background-color: #313131;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 3px;
+    padding-left: 10px;
+    background-color: #313131;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #3366bb;
+}
+
+.ico {
+    margin-right: 10px;
+}
+  
+.ico img {
+    width: 50px;
+}
+
+.name_photo
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: fit-content;
+}
+  .accountFoto {
+    width: 160px;
+    height: 160px;
+    margin-top: 50px;
+    border-radius: 100%;
+    background-image: url("1.jpg");
+    background-size: cover;
+  }
+  .name_photo p{
+    margin-top: 20px;
+    color: #fff;
+    font-size: 24px;
+  }
+
+  .info_cap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    width: 100px;
+    height: 40px;
+    padding: 5px;
+    border-radius: 40px;
+    color: #fff;
+    font-size: 16px;
+    background-color: #222526;
+    margin-top: 50px;
+  }
+
+  .skills{
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: column;
+  }
+
+  .skills_cap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    width: 100px;
+    height: 40px;
+    padding: 5px;
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #222526;
+    margin-top: 50px;
+  }
+
+  .skills_txt{
+    height: fit-content;
+  }
